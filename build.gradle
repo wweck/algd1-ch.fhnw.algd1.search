@@ -1,0 +1,53 @@
+plugins {
+	id 'java'
+	id 'idea'
+}
+
+sourceCompatibility = 14
+targetCompatibility = 14
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+}
+
+task testPrimes (type: Test) {
+	group = 'verification'
+	description = 'Runs tests for the task to check whether a number is prime'
+	
+	include('ch/fhnw/algd1/search/prime/*.class')
+}
+
+task testSentinel (type: Test) {
+	group = 'verification'
+	description = 'Runs tests for the task to search any element using a sentinel'
+	
+	include('ch/fhnw/algd1/search/sentinelsearch/*.class')
+	exclude('ch/fhnw/algd1/search/sentinelsearch/*First*.class')
+}
+
+task testSentinelFirstElem (type: Test) {
+	group = 'verification'
+	description = 'Runs tests for the task to search for the first element using a sentinel'
+	
+	include('ch/fhnw/algd1/search/sentinelsearch/*.class')
+}
+
+task testBinSearchObjects (type: Test) {
+	group = 'verification'
+	description = 'Runs tests for the task to binarily search an object array'
+	
+	include('ch/fhnw/algd1/search/binobjectsearch/*.class')
+}
+
+task testBinSearchFirstElem (type: Test) {
+	group = 'verification'
+	description = 'Runs tests for the task to binarily search for the first occurance in an object array'
+	
+	include('ch/fhnw/algd1/search/binsearchfirst/*.class')
+}
