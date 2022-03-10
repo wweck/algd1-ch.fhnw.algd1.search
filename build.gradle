@@ -51,3 +51,10 @@ task testBinSearchFirstElem (type: Test) {
 	
 	include('ch/fhnw/algd1/search/binsearchfirst/*.class')
 }
+
+task testSquareRootBisection (type: Test) {
+	group = 'verification'
+	description = 'Runs tests for the task to compute square roots through bisection'
+	
+	include('ch/fhnw/algd1/search/sqrt/*.class')
+}
