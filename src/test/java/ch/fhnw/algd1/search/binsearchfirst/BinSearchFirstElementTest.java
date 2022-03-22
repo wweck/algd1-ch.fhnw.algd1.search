@@ -119,6 +119,13 @@ public class BinSearchFirstElementTest {
 		assertEquals(elements.length, index);
 	}
 
+	@Test
+	public void testZeroLengthArray() {
+		String[] elements = new String[0];
+		int index = BinSearchFirstElement.binSearch(elements, "O");
+		assertEquals(0, index);
+	}
+
 	private static final int VAL = 42;
 
 	private static int timeOf(int arraySize, long duration, int key) {

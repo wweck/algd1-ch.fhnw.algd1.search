@@ -81,4 +81,11 @@ public class BinaryObjectSearchTest {
 		int index = BinaryObjectSearch.binSearch(elements, "O");
 		assertEquals(5, index);
 	}
+
+	@Test
+	public void testZeroLengthArray() {
+		String[] elements = new String[0];
+		int index = BinaryObjectSearch.binSearch(elements, "O");
+		assertEquals(-1, index);
+	}
 }

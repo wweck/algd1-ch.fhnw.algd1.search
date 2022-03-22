@@ -45,4 +45,10 @@ public class SentinelTest {
 		assertFalse("30 is not an element of data", SentinelSearch.exists(numbers, 30));
 		assertTrue("Array elements have changed", Arrays.equals(numbers, copy));
 	}
+
+	@Test
+	public void testZeroLengthArray() {
+		int[] numbers = new int[0];
+		assertFalse("Empty array contains no elements", SentinelSearch.exists(numbers, 30));
+	}
 }
