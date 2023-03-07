@@ -61,4 +61,17 @@ public class SentinelTestFirstElement {
 		int[] numbers = new int[0];
 		assertEquals("Empty array contains no elements", -1, SentinelSearch.firstIndex(numbers, 30));
 	}
+
+	@Test
+	public void testLengthOneArrayTrue() {
+		int[] numbers = new int[] { 30 };
+		assertEquals("Element must be found even in an array of length one", 0, SentinelSearch.firstIndex(numbers, 30));
+	}
+
+	@Test
+	public void testLengthOneArrayFalse() {
+		int[] numbers = new int[] { 30 };
+		assertEquals("Should return -1, if Array of length one does not contain element searched for", -1,
+				SentinelSearch.firstIndex(numbers, 31));
+	}
 }
