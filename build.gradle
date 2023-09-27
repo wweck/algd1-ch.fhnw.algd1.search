@@ -58,3 +58,10 @@ task testSquareRootBisection (type: Test) {
 	
 	include('ch/fhnw/algd1/search/sqrt/*.class')
 }
+
+task testTripleSeqSearch (type: Test) {
+	group = 'verification'
+	description = 'Runs tests for the task to search for three values in a sequence'
+	
+	include('ch/fhnw/algd1/search/tripleseqsearch/*.class')
+}
