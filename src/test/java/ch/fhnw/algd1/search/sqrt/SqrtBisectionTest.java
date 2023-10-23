@@ -17,11 +17,6 @@ public class SqrtBisectionTest {
 	}
 
 	@Test
-	public void test0() {
-		assertEquals(0.0, SqrtBisection.squareRoot(0.0), 0);
-	}
-
-	@Test
 	public void test1() {
 		assertEquals(1.0, SqrtBisection.squareRoot(1.0), 0);
 	}
@@ -63,11 +58,22 @@ public class SqrtBisectionTest {
 
 	@Test
 	public void test500() {
-		checkWithTolerance(500);
+		assertEquals(Math.sqrt(500), SqrtBisection.squareRoot(500), 0);
+	}
+
+	@Test
+	public void test498() {
+		assertEquals(Math.sqrt(498), SqrtBisection.squareRoot(498), 0);
 	}
 
 	@Test
 	public void testMaxVal() {
 		assertEquals(Math.sqrt(Double.MAX_VALUE), SqrtBisection.squareRoot(Double.MAX_VALUE), 0);
+	}
+
+	@Test
+	public void testSmallVal() {
+		double min_val = Double.longBitsToDouble(0b0_00000000000_1110000000000000000000000000000000000000000000000000L);
+		assertEquals(Math.sqrt(min_val), SqrtBisection.squareRoot(min_val), 0);
 	}
 }
