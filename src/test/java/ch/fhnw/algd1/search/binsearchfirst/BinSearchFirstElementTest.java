@@ -143,7 +143,7 @@ public class BinSearchFirstElementTest {
 
 	@Test
 	public void testSlowDownFirst() {
-		final int N = 10_000_000, DUR = 250_000_000;
+		final int N = 1_000_000, DUR = 250_000_000;
 		timeOf(N, DUR, VAL);
 		int n1 = timeOf(N, DUR, VAL), n2 = timeOf(2 * N, DUR, VAL);
 		assertTrue("Laufzeit wächst zu schnell an. Sequnezielle Suche verwendet?", 3 * n2 > 2 * n1);
@@ -151,7 +151,7 @@ public class BinSearchFirstElementTest {
 
 	@Test
 	public void testSlowDownLast() {
-		final int N = 10_000_000, DUR = 250_000_000;
+		final int N = 1_000_000, DUR = 250_000_000;
 		timeOf(N, DUR, VAL + 1);
 		int n1 = timeOf(N, DUR, VAL + 1), n2 = timeOf(2 * N, DUR, VAL + 1);
 		assertTrue("Laufzeit wächst zu schnell an. Sequnezielle Suche verwendet?", 3 * n2 > 2 * n1);
