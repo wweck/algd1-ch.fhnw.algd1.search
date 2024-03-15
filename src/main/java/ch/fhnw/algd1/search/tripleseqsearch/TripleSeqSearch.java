@@ -4,7 +4,7 @@
 package ch.fhnw.algd1.search.tripleseqsearch;
 
 /**
- * @author Wolfgang Weck
+ * @author 
  */
 public class TripleSeqSearch {
 	public static boolean hasSequence(int[] nums) {
