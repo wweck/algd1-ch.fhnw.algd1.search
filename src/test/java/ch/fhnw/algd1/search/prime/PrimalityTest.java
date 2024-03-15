@@ -31,4 +31,20 @@ public class PrimalityTest {
 			else assertFalse(i + " is detected as prime but is not prime.", Primality.isPrime(i));
 		}
 	}
+
+	private static int runsOf(int x) {
+		final long t = System.nanoTime() + 250_000_000;
+		int cnt = 0;
+		while (System.nanoTime() < t) {
+			cnt++;
+			assertTrue(Primality.isPrime(x));
+		}
+		return cnt;
+	}
+
+	@Test
+	public void speedTest() {
+		int n1 = runsOf(10_007), n2 = runsOf(1_000_003);
+		assertTrue("Program could be sped up.", 30 * n2 > n1);
+	}
 }
