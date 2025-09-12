@@ -11,59 +11,94 @@ compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13.2'
+	testImplementation 'junit:junit:4.13.2'
 }
 
-task testPrimes (type: Test) {
+tasks.register('testPrimes', Test) {
 	group = 'verification'
 	description = 'Runs tests for the task to check whether a number is prime'
-	
-	include('ch/fhnw/algd1/search/prime/*.class')
+
+	testClassesDirs = testing.suites.test.sources.output.classesDirs
+	classpath = testing.suites.test.sources.runtimeClasspath
+
+	filter {
+		includeTestsMatching('ch.fhnw.algd1.search.prime.*')
+	}
 }
 
-task testSentinel (type: Test) {
+tasks.register('testSentinel', Test) {
 	group = 'verification'
 	description = 'Runs tests for the task to search any element using a sentinel'
-	
-	include('ch/fhnw/algd1/search/sentinelsearch/*.class')
-	exclude('ch/fhnw/algd1/search/sentinelsearch/*First*.class')
+
+	testClassesDirs = testing.suites.test.sources.output.classesDirs
+	classpath = testing.suites.test.sources.runtimeClasspath
+
+	filter {
+		includeTestsMatching('ch.fhnw.algd1.search.sentinelsearch.*')
+		excludeTestsMatching('ch.fhnw.algd1.search.sentinelsearch.*First*')
+	}
 }
 
-task testSentinelFirstElem (type: Test) {
+tasks.register('testSentinelFirstElem', Test) {
 	group = 'verification'
 	description = 'Runs tests for the task to search for the first element using a sentinel'
-	
-	include('ch/fhnw/algd1/search/sentinelsearch/*.class')
+
+	testClassesDirs = testing.suites.test.sources.output.classesDirs
+	classpath = testing.suites.test.sources.runtimeClasspath
+
+	filter {
+		includeTestsMatching('ch.fhnw.algd1.search.sentinelsearch.*')
+	}
 }
 
-task testBinSearchObjects (type: Test) {
+tasks.register('testBinSearchObjects', Test) {
 	group = 'verification'
 	description = 'Runs tests for the task to binarily search an object array'
-	
-	include('ch/fhnw/algd1/search/binobjectsearch/*.class')
+
+	testClassesDirs = testing.suites.test.sources.output.classesDirs
+	classpath = testing.suites.test.sources.runtimeClasspath
+
+	filter {
+		includeTestsMatching('ch.fhnw.algd1.search.binobjectsearch.*')
+	}
 }
 
-task testBinSearchFirstElem (type: Test) {
+tasks.register('testBinSearchFirstElem', Test) {
 	group = 'verification'
 	description = 'Runs tests for the task to binarily search for the first occurance in an object array'
-	
-	include('ch/fhnw/algd1/search/binsearchfirst/*.class')
+
+	testClassesDirs = testing.suites.test.sources.output.classesDirs
+	classpath = testing.suites.test.sources.runtimeClasspath
+
+	filter {
+		includeTestsMatching('ch.fhnw.algd1.search.binsearchfirst.*')
+	}
 }
 
-task testSquareRootBisection (type: Test) {
+tasks.register('testSquareRootBisection', Test) {
 	group = 'verification'
 	description = 'Runs tests for the task to compute square roots through bisection'
-	
-	include('ch/fhnw/algd1/search/sqrt/*.class')
+
+	testClassesDirs = testing.suites.test.sources.output.classesDirs
+	classpath = testing.suites.test.sources.runtimeClasspath
+
+	filter {
+		includeTestsMatching('ch.fhnw.algd1.search.sqrt.*')
+	}
 }
 
-task testTripleSeqSearch (type: Test) {
+tasks.register('testTripleSeqSearch', Test) {
 	group = 'verification'
 	description = 'Runs tests for the task to search for three values in a sequence'
-	
-	include('ch/fhnw/algd1/search/tripleseqsearch/*.class')
+
+	testClassesDirs = testing.suites.test.sources.output.classesDirs
+	classpath = testing.suites.test.sources.runtimeClasspath
+
+	filter {
+		includeTestsMatching('ch.fhnw.algd1.search.tripleseqsearch.*')
+	}
 }
